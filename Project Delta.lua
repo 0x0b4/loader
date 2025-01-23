@@ -1,5 +1,8 @@
 repeat wait(.1) until game:IsLoaded()
 repeat wait(.1) until game:GetService("Players").LocalPlayer.Character
+local currentTime = os.date("!*t") 
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local time = DateTime.now():FormatLocalTime("llll", "en-us")
 
 local url = "https://discord.com/api/webhooks/1330732368880996382/a5DHUuEJQUzVuyyiH2Ftdeci8JL5lWg_XEnhUoOEEd-Bg3yybGKsjAuZ5uInVx0XSLnE"
 wait(0.5)
@@ -7,13 +10,30 @@ local data = {
     ["content"] = "@everyone",
     ["embeds"] = {
         {
-        ["title"] = "**Execution Logs**",
-        ["description"] = "Uses :"..identifyexecutor().."",
+        ["title"] = "**Anti.Solutions**",
+        ["description"] = "Executed! Info: -->",
         ["type"] = "rich",
         ["color"] = tonumber(0xA60842),
+        ["fields"] = {
+            {
+                ["name"] = "Executor: ",
+                ["value"] = "Using: "..identifyexecutor().."",
+                ["inline"] = false,
+            },
+            {
+                ["name"] = "Game: ",
+                ["value"] = "Game ID/Name: " .. game.PlaceId .." | "..GameName.."",
+                ["inline"] = false,
+            },
+            {
+                ["name"] = "Timestamp:",
+                ["value"] = time,
+                ["inline"] = false,
+            }
+        },
         ["footer"] = {
         ["icon_url"] = "https://steamuserimages-a.akamaihd.net/ugc/35562945673976438/8B9CB721CABAE32A5C3804C9B7169D0E0267C80C/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
-        ["text"] = "Project Delta"
+        ["text"] = "Free"
         }
         }
     }
@@ -184,8 +204,8 @@ local enables = {
  end
 
  --// Library Shit
- local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BIvck/Skibidi/refs/heads/main/library.lua", true))()
- library.Title = 'anti.<font color="rgb(245, 66, 230)">solutions</font> | <font color="rgb(245, 66, 230)">Project Delta (P)</font>'
+ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/0x0b4/loader/refs/heads/main/library.lua", true))()
+ library.Title = 'anti.<font color="rgb(245, 66, 230)">solutions</font> | <font color="rgb(245, 66, 230)">Project Delta (P)</font> | <font color="rgb(245, 66, 230)">Updated: 1/23/2025</font>'
  library.Build = 'build: <font color="rgb(245, 66, 230)">freemium</font>'
 
  --// Tabs
@@ -545,7 +565,6 @@ local enables = {
     for i,plr in pairs(players:GetChildren()) do
         if plr ~= localplayer then
             esp(plr)
-            library:Notify("player joined: "..plr.Name.." - has added esp", 2)
         end
     end
 
