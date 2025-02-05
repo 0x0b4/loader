@@ -1,7 +1,7 @@
 local httpService = game:GetService('HttpService')
 
 local SaveManager = {} do
-	SaveManager.Folder = 'LinoriaLibSettings'
+	SaveManager.Folder = 'anti.solutions'
 	SaveManager.Ignore = {}
 	SaveManager.Parser = {
 		Toggle = {
